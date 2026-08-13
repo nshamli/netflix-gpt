@@ -57,7 +57,6 @@ const Login = () => {
                   displayName: user.displayName,
                 })
               );
-              navigate("/browse");
             })
             .catch((error) => {
               setErrorMsg(error);
@@ -78,7 +77,7 @@ const Login = () => {
           // Signed in
           const user = userCredential.user;
           //dispatch(addUser({ uid: user.uid, email: user.email }));
-          navigate("/browse");
+
           console.log(user);
         })
         .catch((error) => {
