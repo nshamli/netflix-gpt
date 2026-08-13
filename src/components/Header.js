@@ -40,11 +40,7 @@ const Header = () => {
                 alt="Sign out"
               />
 
-              <span
-                onClick={() => {
-                  setIsUserProfileOpen(!isUserProfileOpen);
-                }}
-              >
+              <span>
                 {isUserProfileOpen ? (
                   <ArrowDropUpIcon />
                 ) : (
@@ -56,7 +52,7 @@ const Header = () => {
         )}
       </div>
       {isUserProfileOpen && (
-        <div className="bg-slate-900 w-44 rounded-md absolute top-14 right-4">
+        <div className="bg-slate-900 w-44 rounded-md absolute top-14  z-10 right-4">
           <button className="text-white p-2" onClick={handleSignOut}>
             Sign out of Netflix
           </button>

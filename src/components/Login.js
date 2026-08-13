@@ -10,10 +10,13 @@ import {
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 const Login = () => {
   const [isSignedIn, setIsSignedIn] = useState(true);
   const [errorMsg, setErrorMsg] = useState(null);
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const name = useRef(null);
@@ -85,6 +88,10 @@ const Login = () => {
         });
     }
   };
+
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
   return (
     <div>
       <Header />
@@ -117,13 +124,25 @@ const Login = () => {
           placeholder="Email"
           className="bg-slate-800 my-3 p-4 border-b-slate-500 rounded-sm w-full text-white"
         />
+        <div className="relative">
+          <input
+            ref={password}
+            type={showPassword ? "text" : "password"}
+            placeholder="Password"
+            className="bg-slate-800  my-3 p-4 border-b-slate-500 rounded-sm w-full text-white"
+          />
+          <button
+            onClick={handleShowPassword}
+            className="absolute right-2 top-1/2 -translate-y-1/2"
+          >
+            {showPassword ? (
+              <VisibilityIcon className="text-white" />
+            ) : (
+              <VisibilityOffIcon className="text-white" />
+            )}
+          </button>
+        </div>
 
-        <input
-          ref={password}
-          type="password"
-          placeholder="Password"
-          className="bg-slate-800  my-3 p-4 border-b-slate-500 rounded-sm w-full text-white"
-        />
         <p className="text-red-700 font-bold">{errorMsg}</p>
         <button
           onClick={onClickSignBtn}
