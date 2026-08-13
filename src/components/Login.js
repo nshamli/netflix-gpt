@@ -38,8 +38,8 @@ const Login = () => {
         </button>
         <p className="text-white cursor-pointer p-2" onClick={handleClick}>
           {isSignedIn
-            ? "New to Netflix? Sign up now"
-            : "Already registered, Sign in"}
+            ? "New to Netflix? Sign Up Now"
+            : "Already registered, Sign In Now"}
         </p>
       </form>
     </div>
