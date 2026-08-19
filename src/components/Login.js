@@ -78,7 +78,7 @@ const Login = () => {
           const user = userCredential.user;
           //dispatch(addUser({ uid: user.uid, email: user.email }));
 
-          console.log(user);
+          //console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
